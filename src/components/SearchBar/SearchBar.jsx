@@ -1,29 +1,30 @@
-
+import  { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
-function SearchBar ({query, onChange, onSubmit }) {
-    
-
+function SearchBar({ onSubmit }) {
+    const [query, setQuery] = useState('');
     const notify = () => toast('no image to find, put text');
-    
-    const handleSubmit = (event, query) => {
-        event.preventDefault()
-        if (query ==="") {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (!query) {
             notify();
             return;
-        } 
-
-        onSubmit(query); 
-    };
-    
+        }
+        onSubmit(query);
        
+    };
+
+    const handleChange = (event) => {
+        setQuery(event.target.value);
+    };
 
     return (
         <header>
             <form onSubmit={handleSubmit}>
                 <input
                     value={query}
-                    onChange={onChange}
+                    onChange={handleChange}
                     type="text"
                     autoComplete="off"
                     autoFocus

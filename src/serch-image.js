@@ -6,7 +6,7 @@ export const searchImage = async (query, page) =>{
   
   const response = await axios.get(`https://api.unsplash.com/search/photos/?client_id=${Authorization}`, {
       params: { query: query,
-      page}
+      page,}
   });
   
   return response.data
