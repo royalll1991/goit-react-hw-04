@@ -1,7 +1,8 @@
+import css from './ErrorMessage.module.css'
 function ErrorMessage (){
     return(
         <>
-        <p>Yuo have a problem, reboot page</p>
+        <p className={css.text}>Yuo have a problem, reboot page</p>
         </>
     );
 }

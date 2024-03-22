@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-
+import css from './SearchBar.module.css';
 function SearchBar({ onSubmit }) {
     const [query, setQuery] = useState('');
     const notify = () => toast('no image to find, put text');
@@ -20,9 +20,9 @@ function SearchBar({ onSubmit }) {
     };
 
     return (
-        <header>
+        <header className = {css.box}>
             <form onSubmit={handleSubmit}>
-                <input
+                <input className = {css.search}
                     value={query}
                     onChange={handleChange}
                     type="text"
@@ -30,7 +30,7 @@ function SearchBar({ onSubmit }) {
                     autoFocus
                     placeholder="Search images and photos"
                 />
-                <button type="submit">Search</button>
+                <button type="submit" className={css.button}>Search</button>
                 <Toaster />
             </form>
         </header>
