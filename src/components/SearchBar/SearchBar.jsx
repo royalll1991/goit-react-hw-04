@@ -11,6 +11,7 @@ function SearchBar({ onSubmit }) {
             notify();
             return;
         }
+        
         onSubmit(query);
        
     };
